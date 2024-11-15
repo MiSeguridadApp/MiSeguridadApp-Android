@@ -42,21 +42,45 @@ class LoginActivity : AppCompatActivity() {
             loginUser(loginRequest)
         }
     }
-
     private fun loginUser(loginRequest: LoginRequest) {
         lifecycleScope.launch {
             try {
                 Log.d("LoginActivity", "Enviando solicitud a la API...")
 
-                val loginResponse = ApiClient.apiService.login(loginRequest)
+                // Realizar la solicitud a la API y obtener un Response<LoginResponse>
+                val response = ApiClient.apiService.login(loginRequest)
 
-                // Si la respuesta es exitosa, navegar a la siguiente actividad
-                Log.d("LoginActivity", "Login exitoso: ${loginResponse.message}")
-                Toast.makeText(this@LoginActivity, "Login exitoso", Toast.LENGTH_SHORT).show()
+                // Verificar si la respuesta fue exitosa
+                if (response.isSuccessful) {
+                    val loginResponse = response.body() // Obtiene el cuerpo de la respuesta
 
-                // Navegar a HomeActivity
-                startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-                finish()
+                    // Verificar si el cuerpo de la respuesta no es null
+                    if (loginResponse != null) {
+                        // Verifica si el mensaje indica un login exitoso
+                        if (loginResponse.message == "Combinación de nombre de usuario/contraseña no válida") {
+                            // Si el mensaje de la respuesta es un error (login fallido)
+                            Log.e("LoginActivity", "Login fallido: ${loginResponse.message}")
+                            Toast.makeText(this@LoginActivity, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                        } else {
+                            // Login exitoso
+                            Log.d("LoginActivity", "Login exitoso: ${loginResponse.message}")
+                            Toast.makeText(this@LoginActivity, "Login exitoso", Toast.LENGTH_SHORT).show()
+
+                            // Navegar a HomeActivity
+                            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                            finish()
+                        }
+                    } else {
+                        // Si la respuesta no contiene un cuerpo válido
+                        Log.e("LoginActivity", "Respuesta vacía o nula")
+                        Toast.makeText(this@LoginActivity, "Error en la respuesta", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Si la respuesta no fue exitosa (por ejemplo, error 401 o 404)
+                    Log.e("LoginActivity", "Login fallido: ${response.message()}")
+                    Toast.makeText(this@LoginActivity, "Error en la solicitud", Toast.LENGTH_SHORT).show()
+                }
+
             } catch (e: HttpException) {
                 Log.e("LoginActivity", "Error HTTP: ${e.message()}")
                 Toast.makeText(this@LoginActivity, "Error en la solicitud", Toast.LENGTH_SHORT).show()
@@ -66,5 +90,4 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
 }
