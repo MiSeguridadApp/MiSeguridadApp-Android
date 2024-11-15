@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.MiSeguridadApp" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Tema que hereda de AppCompat -->
+    <style name="Theme.MiSeguridadApp" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    </style>
+
 </resources>

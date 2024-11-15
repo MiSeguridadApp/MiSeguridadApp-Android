@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/OvaloLaredo"
+    android:background="@drawable/ovalo_laredo"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp">
@@ -13,7 +13,7 @@
         android:id="@+id/imageView2"
         android:layout_width="302dp"
         android:layout_height="113dp"
-        app:srcCompat="@drawable/LogoLaredo"
+        app:srcCompat="@drawable/logo_laredo"
         android:layout_marginBottom="24dp" />
 
     <!-- Campo de texto para el usuario -->
