@@ -36,9 +36,9 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, ingresa tu usuario y contraseña", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            Log.d("LoginActivity", "Usuario: $username , $password" )
 
             val loginRequest = LoginRequest(username, password)
-            Log.d("LoginActivity", "Intentando iniciar sesión con: $username y $password")
             loginUser(loginRequest)
         }
     }
