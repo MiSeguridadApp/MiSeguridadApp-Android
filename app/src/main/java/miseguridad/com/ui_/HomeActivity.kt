@@ -8,7 +8,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cargar_incidencias)
+        setContentView(R.layout.activity_start_admin)
 
         // Aquí puedes agregar cualquier funcionalidad para la pantalla de inicio
     }
