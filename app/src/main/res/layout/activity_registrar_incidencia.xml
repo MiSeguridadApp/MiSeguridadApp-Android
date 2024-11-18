@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ovalo_laredo">
+
+
+    <!-- Encabezado -->
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:text="Registrar Incidencia"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Tipo de Incidencia -->
+    <TextView
+        android:id="@+id/tipoincidencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo de Incidencia"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="102dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tipoincidenciaEditText"
+        android:layout_width="351dp"
+        android:layout_height="49dp"
+        android:background="@color/white"
+        android:drawablePadding="12dp"
+        android:hint="Asalto, Robo, Accidente..."
+        android:inputType="text"
+        android:padding="12dp"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="134dp"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Ubicación (Coordenadas) -->
+
+    <TextView
+        android:id="@+id/ubicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubicación"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="214dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/coordenadasEditText"
+        android:layout_width="351dp"
+        android:layout_height="49dp"
+        android:background="@color/white"
+        android:drawablePadding="12dp"
+        android:hint="Ingresar Coordenadas"
+        android:inputType="text"
+        android:padding="12dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <!-- Estado -->
+
+    <TextView
+        android:id="@+id/estado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="321dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="351dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/black"
+        android:entries="@array/estado_array"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="353dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="193dp"
+        android:layout_height="74dp"
+        android:background="@color/white"
+        android:backgroundTint="#083D71"
+        android:backgroundTintMode="src_in"
+        android:stateListAnimator="@android:anim/accelerate_decelerate_interpolator"
+        android:text="Guardar incidencia"
+        android:textColor="@color/white"
+        android:textColorLink="#E4D3D3"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="487dp"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

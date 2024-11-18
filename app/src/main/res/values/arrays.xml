@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="estado_array">
+        <item>Registrado</item>
+        <item>Atendido</item>
+        <item>Solucionado</item>
+    </string-array>
+</resources>

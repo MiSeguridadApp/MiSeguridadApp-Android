@@ -29,7 +29,7 @@
             android:background="@color/white"
             android:drawableLeft="@drawable/ic_user"
             android:drawablePadding="12dp"
-            android:hint="ID de Usuario"
+            android:hint="ID de Usuario (Correo)"
             android:inputType="text"
             android:padding="12dp" />
     </com.google.android.material.textfield.TextInputLayout>
