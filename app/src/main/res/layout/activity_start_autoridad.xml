@@ -58,7 +58,7 @@
     <!-- Botón de Cargar Incidencias -->
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btnRegistrarIncidencia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -91,6 +91,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnRegistrar" />
+        app:layout_constraintTop_toBottomOf="@id/btnRegistrarIncidencia" />
+
+    <!-- Botón de Registrar Usuario -->
+    <Button
+        android:id="@+id/btnRegistrarUsuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#D1C4E9"
+        android:drawableLeft="@drawable/ic_adduser"
+        android:drawablePadding="8dp"
+        android:padding="16dp"
+        android:text="Registrar usuario"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnVisualizar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

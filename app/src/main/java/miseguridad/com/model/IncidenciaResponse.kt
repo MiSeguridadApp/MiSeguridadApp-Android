@@ -1,4 +1,5 @@
-package miseguridad.com.model
+package com.example.apisecurityapp.model
 
-class IncidenciaResponse {
-}
+data class IncidenciaResponse(
+    val message: String
+)

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MiSeguridadApp</string>
+    <string-array name="organizations_array">
+        <item>Organización 1</item>
+        <item>Organización 2</item>
+        <item>Organización 3</item>
+        <item>Organización 4</item>
+    </string-array>
+
 </resources>
