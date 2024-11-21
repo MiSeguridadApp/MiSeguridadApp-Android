@@ -112,18 +112,17 @@
     <Button
         android:id="@+id/button"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="193dp"
-        android:layout_height="74dp"
-        android:background="@color/white"
+        android:layout_width="204dp"
+        android:layout_height="77dp"
         android:backgroundTint="#083D71"
         android:backgroundTintMode="src_in"
         android:stateListAnimator="@android:anim/accelerate_decelerate_interpolator"
         android:text="Guardar incidencia"
         android:textColor="@color/white"
         android:textColorLink="#E4D3D3"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="487dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="486dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

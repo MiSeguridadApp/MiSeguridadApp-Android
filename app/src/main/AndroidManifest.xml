@@ -33,6 +33,26 @@
             android:exported="true"
             android:label="Home Activity"
             android:theme="@style/Theme.MiSeguridadApp" />
+        <activity
+            android:name=".ui_.RegistrarIncidenciaActivity"
+            android:exported="true"
+            android:label="Registar Incidencia Activity"
+            android:theme="@style/Theme.MiSeguridadApp" />
+        <activity
+            android:name=".ui_.ModificarIncidenciaActivity"
+            android:exported="true"
+            android:label="Modificar Incidencia Activity"
+            android:theme="@style/Theme.MiSeguridadApp" />
+        <activity
+            android:name=".ui_.RegistrarUsuarioActivity"
+            android:exported="true"
+            android:label="Registrar Usuario Activity"
+            android:theme="@style/Theme.MiSeguridadApp" />
+        <activity
+            android:name=".ui_.VisualizarIncidenciasActivity"
+            android:exported="true"
+            android:label="Visualizar Incidencia Activity"
+            android:theme="@style/Theme.MiSeguridadApp" />
     </application>
 
 </manifest>
