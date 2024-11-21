@@ -1,128 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ovalo_laredo">
 
-
     <!-- Encabezado -->
-
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#4CAF50"
-        android:drawablePadding="8dp"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:padding="16dp"
         android:text="Registrar Usuario"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="40dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
         android:src="@drawable/ic_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Nombre y apellido del usuario -->
-
-
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="193dp"
-        android:layout_height="74dp"
+    <!-- Campos de texto -->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nombreEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:padding="12dp"
         android:background="@color/white"
-        android:backgroundTint="#083D71"
-        android:backgroundTintMode="src_in"
-        android:stateListAnimator="@android:anim/accelerate_decelerate_interpolator"
-        android:text="Registrar usuario"
-        android:textColor="@color/white"
-        android:textColorLink="#E4D3D3"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="550dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/apellidosEditText"
-        android:layout_width="355dp"
-        android:layout_height="51dp"
-        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="Apellidos"
-        android:inputType="textPersonName"
         android:padding="12dp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="193dp"
-        tools:ignore="MissingConstraints" />
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nombreEditText"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/fechaNacimientoEditText"
-        android:layout_width="355dp"
-        android:layout_height="51dp"
-        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="Fecha de Nacimiento"
         android:inputType="date"
         android:padding="12dp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="278dp"
-        tools:ignore="MissingConstraints" />
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/apellidosEditText"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emailEditText"
-        android:layout_width="355dp"
-        android:layout_height="51dp"
-        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress"
         android:padding="12dp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="359dp"
-        tools:ignore="MissingConstraints" />
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fechaNacimientoEditText"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/passwordEditText"
-        android:layout_width="355dp"
-        android:layout_height="51dp"
-        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:padding="12dp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="441dp"
-        tools:ignore="MissingConstraints" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/nombreEditText"
-        android:layout_width="355dp"
-        android:layout_height="51dp"
         android:background="@color/white"
-        android:hint="Nombre"
-        android:inputType="textPersonName"
-        android:padding="12dp"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="106dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailEditText"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
+
     <!-- Spinner para seleccionar organización -->
     <Spinner
         android:id="@+id/spinnerOrganization"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditText"
+        android:entries="@array/organizations_array"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:entries="@array/organizations_array" /> <!-- Aquí usas un array definido en strings.xml -->
+        app:layout_constraintTop_toBottomOf="@id/passwordEditText"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Botón Registrar -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Registrar Usuario"
+        android:backgroundTint="#083D71"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerOrganization"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

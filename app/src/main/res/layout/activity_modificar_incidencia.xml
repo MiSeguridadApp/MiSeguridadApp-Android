@@ -1,129 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ovalo_laredo">
 
-
     <!-- Encabezado -->
-
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#4CAF50"
-        android:drawablePadding="8dp"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:padding="16dp"
         android:text="Modificar Incidencia"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/btnBack"
         android:layout_width="40dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
         android:src="@drawable/ic_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Tipo de Incidencia -->
     <TextView
         android:id="@+id/tipoincidencia"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Tipo de Incidencia"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="102dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/tipoincidenciaEditText"
-        android:layout_width="351dp"
-        android:layout_height="49dp"
-        android:background="@color/white"
-        android:drawablePadding="12dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="Asalto, Robo, Accidente..."
-        android:inputType="text"
         android:padding="12dp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="134dp"
-        tools:ignore="MissingConstraints" />
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipoincidencia"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
 
-    <!-- Ubicación (Coordenadas) -->
-
+    <!-- Ubicación -->
     <TextView
         android:id="@+id/ubicacion"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Ubicación"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="214dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipoincidenciaEditText"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/coordenadasEditText"
-        android:layout_width="351dp"
-        android:layout_height="49dp"
-        android:background="@color/white"
-        android:drawablePadding="12dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="Ingresar Coordenadas"
-        android:inputType="text"
         android:padding="12dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="246dp" />
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ubicacion"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
 
     <!-- Estado -->
-
     <TextView
         android:id="@+id/estado"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Estado"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="321dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/coordenadasEditText"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="351dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/black"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:entries="@array/estado_array"
-        android:spinnerMode="dropdown"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="353dp"
-        tools:ignore="MissingConstraints" />
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/estado"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
 
+    <!-- Botón Guardar Cambios -->
     <Button
         android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="193dp"
-        android:layout_height="74dp"
-        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar Cambios"
         android:backgroundTint="#083D71"
-        android:backgroundTintMode="src_in"
-        android:stateListAnimator="@android:anim/accelerate_decelerate_interpolator"
-        android:text="Guardar cambios"
         android:textColor="@color/white"
-        android:textColorLink="#E4D3D3"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="487dp"
-        tools:ignore="MissingConstraints" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
