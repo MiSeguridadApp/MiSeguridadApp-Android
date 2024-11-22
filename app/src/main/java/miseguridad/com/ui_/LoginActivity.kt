@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity() {
             loginUser(loginRequest)
         }
     }
+
     private fun loginUser(loginRequest: LoginRequest) {
         lifecycleScope.launch {
             try {
@@ -66,9 +67,15 @@ class LoginActivity : AppCompatActivity() {
                             Log.d("LoginActivity", "Login exitoso: ${loginResponse.message}")
                             Toast.makeText(this@LoginActivity, "Login exitoso", Toast.LENGTH_SHORT).show()
 
-                            // Navegar a HomeActivity
+                            // Guardar el ID del usuario en SharedPreferences
+                            val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
+                            editor.putInt("idusuario", loginResponse.userId)  // Guarda el ID del usuario
+                            editor.apply()  // Aplica los cambios
+
+                            // Navegar a HomeActivity (o la actividad que corresponda)
                             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-                            finish()
+                            finish()  // Finaliza el LoginActivity para que no regrese al login
                         }
                     } else {
                         // Si la respuesta no contiene un cuerpo válido
@@ -91,3 +98,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
+

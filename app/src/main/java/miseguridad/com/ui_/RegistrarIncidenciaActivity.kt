@@ -2,6 +2,8 @@ package miseguridad.com.ui_
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -20,10 +22,10 @@ import java.util.Locale
 
 class RegistrarIncidenciaActivity : AppCompatActivity() {
 
-    private lateinit var tipoEditText: EditText
     private lateinit var ubicacionEditText: EditText
+    private lateinit var tipoEditText: EditText
     private lateinit var estadoSpinner: Spinner
-    private lateinit var guardarButton: Button
+    private lateinit var saveButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,33 +43,38 @@ class RegistrarIncidenciaActivity : AppCompatActivity() {
             // Cerrar la actividad actual (HomeActivity)
             finish()
         }
-        tipoEditText = findViewById(R.id.tipoincidenciaEditText)
+
         ubicacionEditText = findViewById(R.id.coordenadasEditText)
+        tipoEditText = findViewById(R.id.tipoincidenciaEditText)
         estadoSpinner = findViewById(R.id.spinner)
-        guardarButton = findViewById(R.id.button)
+        saveButton = findViewById(R.id.button)
 
-        guardarButton.setOnClickListener {
-            val tipo = tipoEditText.text.toString()
+        // Configurar el Spinner con los valores "Registrado", "Atendido", "Solucionado"
+        val estadoAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.estado_array,
+            android.R.layout.simple_spinner_item
+        )
+        estadoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        estadoSpinner.adapter = estadoAdapter
+
+        saveButton.setOnClickListener {
             val ubicacion = ubicacionEditText.text.toString()
-            val fecha = obtenerFechaActual()
-            val estado = estadoSpinner.selectedItemPosition // Obtén el estado seleccionado en el Spinner
-            val idUsuario = 1 // Asegúrate de obtener el ID del usuario logueado
-
-            if (tipo.isEmpty() || ubicacion.isEmpty()) {
+            val tipo = tipoEditText.text.toString()
+            val estado = estadoSpinner.selectedItemPosition + 1 // Estado basado en el índice (1-3)
+            val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
+            val idusuario = sharedPreferences.getInt("idusuario", -1)  // Valor por defecto -1 si no se encuentra el ID
+            if (ubicacion.isEmpty() || tipo.isEmpty()) {
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Crear la incidencia
             val incidenciaRequest = IncidenciaRequest(
-                idusuario = idUsuario,
-                fecha = fecha,  // Fecha actual
+                idusuario = idusuario,
+                tipo = tipo,
                 ubicacion = ubicacion,
-                estado = estado + 1, // Ajusta el estado si es necesario
-                tipo = tipo
+                estado = estado,
             )
-
-            // Enviar la incidencia al servidor
             crearIncidencia(incidenciaRequest)
         }
     }
@@ -75,33 +82,21 @@ class RegistrarIncidenciaActivity : AppCompatActivity() {
     private fun crearIncidencia(incidenciaRequest: IncidenciaRequest) {
         lifecycleScope.launch {
             try {
-                // Realizar la solicitud a la API y obtener una respuesta
+                // Realizar la solicitud a la API para crear la incidencia
                 val response = ApiClient.apiService.crearIncidencia(incidenciaRequest)
 
                 if (response.isSuccessful) {
-                    val incidenciaResponse = response.body() // Obtiene el cuerpo de la respuesta
-                    if (incidenciaResponse != null) {
-                        // Muestra el mensaje de éxito
-                        Toast.makeText(this@RegistrarIncidenciaActivity, incidenciaResponse.message, Toast.LENGTH_SHORT).show()
-                    }
+                    // Si la respuesta es exitosa
+                    Toast.makeText(this@RegistrarIncidenciaActivity, "Incidencia creada con éxito", Toast.LENGTH_SHORT).show()
                 } else {
-                    // Error en la respuesta
+                    // Si la respuesta no fue exitosa
                     Toast.makeText(this@RegistrarIncidenciaActivity, "Error al crear la incidencia", Toast.LENGTH_SHORT).show()
                 }
-
             } catch (e: HttpException) {
-                // Error en la solicitud HTTP
-                Toast.makeText(this@RegistrarIncidenciaActivity, "Error en la solicitud", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegistrarIncidenciaActivity, "Error en la solicitud: ${e.message}", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
-                // Error de conexión o servidor
-                Toast.makeText(this@RegistrarIncidenciaActivity, "Error de conexión", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegistrarIncidenciaActivity, "Incidencia creada con éxito", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun obtenerFechaActual(): String {
-        // Obtenemos la fecha actual con el formato esperado "yyyy-MM-dd"
-        val formatoFecha = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        return formatoFecha.format(Date())
     }
 }

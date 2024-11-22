@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ovalo_laredo">
 
-
     <!-- Encabezado -->
-
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="0dp"
@@ -37,10 +35,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:layout_width="409dp"
-        android:layout_height="673dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="57dp" />
-
+        android:id="@+id/listViewIncidencias"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
