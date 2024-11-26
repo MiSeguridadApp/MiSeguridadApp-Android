@@ -4,6 +4,8 @@ import com.example.apisecurityapp.model.IncidenciaRequest
 import com.example.apisecurityapp.model.IncidenciaResponse
 import com.example.apisecurityapp.model.LoginRequest
 import com.example.apisecurityapp.model.LoginResponse
+import com.example.apisecurityapp.model.OrganizacionRequest
+import com.example.apisecurityapp.model.OrganizacionResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -19,4 +21,7 @@ interface ApiService {
 
     @GET("api/incidencias")
     suspend fun obtenerIncidencias(): Response<List<IncidenciaResponse>>
+
+    @POST("api/organizaciones") // Cambia la URL según el endpoint correcto
+    suspend fun registrarOrganizacion(@Body organizacionRequest: OrganizacionRequest): Response<OrganizacionResponse>
 }

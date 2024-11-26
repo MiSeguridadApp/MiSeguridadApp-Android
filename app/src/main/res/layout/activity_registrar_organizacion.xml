@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ovalo_laredo">
+
+    <!-- Encabezado -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Registrar Organizacion"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Tipo de Organizacion -->
+    <TextView
+        android:id="@+id/tipoorganizacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tipo de Organizacion"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tipoorganizacionEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Tecnologica, Publica, Privada..."
+        android:padding="12dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipoorganizacion"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Nombre -->
+    <TextView
+        android:id="@+id/nombreorganizacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre Organizacion"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipoorganizacionEditText"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nombreEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingresar Nombre de la Organizacion"
+        android:padding="12dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nombreorganizacion"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp" />
+
+
+    <!-- Botón Guardar -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="#083D71"
+        android:text="Guardar Organizacion"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreEditText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
