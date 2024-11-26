@@ -64,5 +64,13 @@ class HomeActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+        val btnRegistrarOrganizacion: Button = findViewById(R.id.btnRegistrarOrganizacion)
+
+        btnRegistrarOrganizacion.setOnClickListener {
+            val intent = Intent(this, RegistrarOrganizacionActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 }

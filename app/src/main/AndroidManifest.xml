@@ -53,6 +53,11 @@
             android:exported="true"
             android:label="Visualizar Incidencia Activity"
             android:theme="@style/Theme.MiSeguridadApp" />
+        <activity
+            android:name=".ui_.RegistrarOrganizacionActivity"
+            android:exported="true"
+            android:label="Registrar Organizacion Activity"
+            android:theme="@style/Theme.MiSeguridadApp" />
     </application>
 
 </manifest>
