@@ -7,4 +7,9 @@
         <item>Organización 4</item>
     </string-array>
 
+    <string-array name="typeuser_array">
+        <item>Admin</item>
+        <item>Usuario</item>
+    </string-array>
+
 </resources>
