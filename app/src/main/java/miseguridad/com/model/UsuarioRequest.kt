@@ -10,10 +10,12 @@ data class UsuarioRequest(
     val contrasena: String,
     val organizacion: Organizacion, // Modelo anidado
     val perfil: Int // 1: Admin, 2: Usuario
-)
+){
+    override fun toString(): String {
+        return "UsuarioRequest(nombre='$nombre', apellidos='$apellidos', fechaNacimiento='$fechaNacimiento', email='$email', password='$contrasena', organizacion='$organizacion', perfil='$perfil')"
+    }
+}
 
 data class Organizacion(
-    val idorganizacion: Long,
-    val nombre: String,
-    val tipo: String
+    val idorganizacion: Long
 )

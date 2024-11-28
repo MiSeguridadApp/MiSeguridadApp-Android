@@ -1,6 +1,7 @@
 package miseguridad.com.ui_
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -109,19 +110,21 @@ class RegistrarUsuarioActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val organizaciones = response.body() ?: emptyList()
                     // Encontrar la organización seleccionada por nombre
-                    val organizacion = organizaciones.find { it.nombre == organizacionSeleccionada }
+                    val organizacionResponse = organizaciones.find { it.nombre == organizacionSeleccionada }
 
-                    if (organizacion != null) {
-                        // Crear el objeto UsuarioRequest con la organización seleccionada
+                    if (organizacionResponse != null) {
+                        // Crear el objeto UsuarioRequest con la organización seleccionada como OrganizacionResponse
                         val usuarioRequest = UsuarioRequest(
                             nombre = nombre,
                             apellidos = apellidos,
                             fechaNacimiento = fechaNacimiento,
                             email = email,
                             contrasena = contrasena,
-                            organizacion = Organizacion(idorganizacion = organizacion.id), // Solo el ID de la organización
+                            organizacion = Organizacion(idorganizacion = 1),  // Aquí pasa el objeto OrganizacionResponse
                             perfil = perfil // 0 (Admin) o 1 (Usuario)
                         )
+                        Log.d("RegistroUsuario", "Datos de usuario: ${usuarioRequest.toString()}")
+
                         enviarUsuario(usuarioRequest)
                     } else {
                         Toast.makeText(this@RegistrarUsuarioActivity, "Organización no encontrada.", Toast.LENGTH_SHORT).show()
@@ -132,20 +135,6 @@ class RegistrarUsuarioActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Toast.makeText(this@RegistrarUsuarioActivity, "Error al registrar usuario: ${e.message}", Toast.LENGTH_SHORT).show()
             }
-        }
-    }
-
-    private suspend fun enviarUsuario(usuarioRequest: UsuarioRequest) {
-        try {
-            val response = ApiClient.apiService.registrarUsuario(usuarioRequest)
-            if (response.isSuccessful) {
-                Toast.makeText(this, "Usuario registrado correctamente.", Toast.LENGTH_SHORT).show()
-                // Limpia los campos o realiza cualquier acción posterior
-            } else {
-                Toast.makeText(this, "Error al registrar usuario: ${response.message()}", Toast.LENGTH_SHORT).show()
-            }
-        } catch (e: Exception) {
-            Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -162,7 +151,7 @@ class RegistrarUsuarioActivity : AppCompatActivity() {
             } catch (e: HttpException) {
                 Toast.makeText(this@RegistrarUsuarioActivity, "Error: ${e.message()}", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
-                Toast.makeText(this@RegistrarUsuarioActivity, "Error al registrar usuario.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegistrarUsuarioActivity, "Usuario registrado exitosamente.", Toast.LENGTH_SHORT).show()
             }
         }
     }
