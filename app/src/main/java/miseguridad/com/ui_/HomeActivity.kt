@@ -72,5 +72,13 @@ class HomeActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+        val btnMapa: Button = findViewById(R.id.btnMapa)
+
+        btnMapa.setOnClickListener {
+            val intent = Intent(this, MapaActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 }

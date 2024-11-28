@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +17,10 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MiSeguridadApp"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.mapbox.token"
+            android:value="TU_ACCESS_TOKEN" />
 
         <activity
             android:name=".ui_.LoginActivity"
@@ -57,6 +62,11 @@
             android:name=".ui_.RegistrarOrganizacionActivity"
             android:exported="true"
             android:label="Registrar Organizacion Activity"
+            android:theme="@style/Theme.MiSeguridadApp" />
+        <activity
+            android:name=".ui_.MapaActivity"
+            android:exported="true"
+            android:label="Mapa Activity"
             android:theme="@style/Theme.MiSeguridadApp" />
     </application>
 
